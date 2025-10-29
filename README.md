@@ -124,6 +124,7 @@ E-Commerce/
 │
 └── README.md
 
+
 ⚙️ How to Run the Project
 1️⃣ Clone the Repository
 git clone https://github.com/NandithaBM/E-Commerce.git
