@@ -182,107 +182,70 @@ function Signup() {
 
   return (
     <div className="flex h-screen items-center justify-center">
-      <div className="w-[600px]">
-        <div className="modal-box overflow-y-auto max-h-screen">
-          <form onSubmit={handleSubmit(onSubmit)} method="dialog">
-            <Link
-              to="/"
-              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-            >
-              ✕
-            </Link>
+      {/* <div className="flex w-[600px] text-white"> */}
+  <div className="w-full max-w-md items-center bg-gray-800 p-8 rounded-2xl shadow-lg">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <h2 className="text-2xl font-semibold text-center">Signup</h2>
 
-            <h3 className="font-bold text-lg">Signup</h3>
-
-            {/* Full Name */}
-            <div className="mt-4 space-y-2">
-              <span>Name</span>
-              <input
-                type="text"
-                placeholder="Enter your fullname"
-                className="w-80 px-3 py-1 border rounded-md outline-none"
-                {...register("fullname", { required: true })}
-              />
-              {errors.fullname && (
-                <span className="text-sm text-red-500">This field is required</span>
-              )}
-            </div>
-
-            {/* Email */}
-            <div className="mt-4 space-y-2">
-              <span>Email</span>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-80 px-3 py-1 border rounded-md outline-none"
-                {...register("email", { required: true })}
-              />
-              {errors.email && (
-                <span className="text-sm text-red-500">This field is required</span>
-              )}
-            </div>
-
-            {/* Password */}
-            <div className="mt-4 space-y-2">
-              <span>Password</span>
-              <input
-                type="password"
-                placeholder="Enter your password"
-                className="w-80 px-3 py-1 border rounded-md outline-none"
-                {...register("password", { required: true })}
-              />
-              {errors.password && (
-                <span className="text-sm text-red-500">This field is required</span>
-              )}
-            </div>
-
-            {/* Address Fields */}
-            <div className="mt-6">
-              <h4 className="font-bold text-md mb-2">Address Details</h4>
-
-              {[
-                ["houseNumber", "House Number"],
-                ["area", "Area"],
-                ["taluk", "Taluk"],
-                ["district", "District"],
-                ["state", "State"],
-                ["country", "Country"],
-                ["pincode", "Pincode"],
-              ].map(([field, label]) => (
-                <div key={field} className="mt-2 space-y-1">
-                  <span>{label}</span>
-                  <input
-                    type="text"
-                    placeholder={`Enter ${label}`}
-                    className="w-80 px-3 py-1 border rounded-md outline-none"
-                    {...register(field, { required: true })}
-                  />
-                  {errors[field] && (
-                    <span className="text-sm text-red-500">This field is required</span>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Submit and Login */}
-            <div className="flex justify-around mt-6">
-              <button className="bg-pink-500 text-white rounded-md px-3 py-1 hover:bg-pink-700 duration-200">
-                Signup
-              </button>
-              <p className="text-xl">
-                Have account?{" "}
-                <button
-                  className="underline text-blue-500 cursor-pointer"
-                  onClick={() => document.getElementById("my_modal_3").showModal()}
-                >
-                  Login
-                </button>{" "}
-                <Login />
-              </p>
-            </div>
-          </form>
-        </div>
+      {/* Full Name */}
+      <div>
+        <label className="block mb-1">Name</label>
+        <input
+          type="text"
+          placeholder="Enter your fullname"
+          className="w-full px-3 py-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+          {...register("fullname", { required: true })}
+        />
+        {errors.fullname && <p className="text-sm text-red-400 mt-1">This field is required</p>}
       </div>
+
+      {/* Email */}
+      <div>
+        <label className="block mb-1">Email</label>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          className="w-full px-3 py-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+          {...register("email", { required: true })}
+        />
+        {errors.email && <p className="text-sm text-red-400 mt-1">This field is required</p>}
+      </div>
+
+      {/* Password */}
+      <div>
+        <label className="block mb-1">Password</label>
+        <input
+          type="password"
+          placeholder="Enter your password"
+          className="w-full px-3 py-2 border border-gray-600 rounded-md bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
+          {...register("password", { required: true })}
+        />
+        {errors.password && <p className="text-sm text-red-400 mt-1">This field is required</p>}
+      </div>
+
+      {/* Buttons */}
+      <div className="flex flex-col items-center gap-2 mt-6">
+        <button
+          type="submit"
+          className="w-full bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 rounded-md duration-200"
+        >
+          Signup
+        </button>
+        <p className="text-sm">
+          Have an account?{" "}
+          <button
+            className="text-blue-400 underline"
+            onClick={() => document.getElementById("my_modal_3").showModal()}
+          >
+            Login
+          </button>
+          <Login/>
+        </p>
+      </div>
+    </form>
+  </div>
+{/* </div> */}
+
     </div>
   );
 }
